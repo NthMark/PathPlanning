@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) +
                 "/../../Sampling_based_Planning/")
 
-from Sampling_based_Planning.rrt_2D import env, plotting, utils
+import env, plotting, utils
 
 
 class Node:
@@ -64,7 +64,6 @@ class RrtConnect:
                             node_new_prim = self.change_node(node_new_prim, node_new_prim2)
                         else:
                             break
-
                         if self.is_node_same(node_new_prim, node_new):
                             break
 
@@ -148,7 +147,6 @@ def main():
 
     rrt_conn = RrtConnect(x_start, x_goal, 0.8, 0.05, 5000)
     path = rrt_conn.planning()
-
     rrt_conn.plotting.animation_connect(rrt_conn.V1, rrt_conn.V2, path, "RRT_CONNECT")
 
 
